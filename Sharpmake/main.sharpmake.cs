@@ -38,6 +38,8 @@ public class CascadeEngine : Project
             
             Optimization.Debug | Optimization.Release
         ));
+
+        
     }
     
     // Sets the properties of each configuration (conf) according to the target.
@@ -55,6 +57,8 @@ public class CascadeEngine : Project
         //specify where the generated project will be
         conf.ProjectPath = @"[project.SharpmakeCsPath]\..\Generated";
         
+        conf.AdditionalCompilerOptions.Add("/std:c++20");
+        conf.AdditionalCompilerOptions.Add("/W4");
     }
 }
 
