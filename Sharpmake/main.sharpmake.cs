@@ -57,8 +57,13 @@ public class CascadeEngine : Project
         //specify where the generated project will be
         conf.ProjectPath = @"[project.SharpmakeCsPath]\..\Generated";
         
+        //cpp standard and warning level + warnings == errors
         conf.AdditionalCompilerOptions.Add("/std:c++20");
         conf.AdditionalCompilerOptions.Add("/W4");
+
+        //Set the Linker Subsystem to Windows (default is console)
+       conf.Options.Add(Sharpmake.Options.Vc.Linker.SubSystem.Windows);
+
     }
 }
 

@@ -1,4 +1,12 @@
-int main()
+#include <Windows.h>
+
+int CALLBACK WinMain
+(
+		HINSTANCE /*hinstance*/,
+		HINSTANCE /*hPrevInstance*/,
+		LPSTR	/*lpCmdLine*/,
+		int /*nCmdShow*/)
 {
-    return 0;
+	
+	return 0;
 }
