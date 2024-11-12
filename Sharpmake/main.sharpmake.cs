@@ -39,7 +39,7 @@ public class CascadeEngine : Project
             Optimization.Debug | Optimization.Release
         ));
 
-        
+       
     }
     
     // Sets the properties of each configuration (conf) according to the target.
@@ -62,8 +62,9 @@ public class CascadeEngine : Project
         conf.AdditionalCompilerOptions.Add("/W4");
 
         //Set the Linker Subsystem to Windows (default is console)
-       conf.Options.Add(Sharpmake.Options.Vc.Linker.SubSystem.Windows);
+        conf.Options.Add(Sharpmake.Options.Vc.Linker.SubSystem.Windows);
 
+       
     }
 }
 
