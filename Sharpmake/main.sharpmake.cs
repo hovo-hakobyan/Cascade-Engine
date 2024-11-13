@@ -64,6 +64,7 @@ public class CascadeEngine : Project
         //cpp standard and warning level + warnings == errors
         conf.AdditionalCompilerOptions.Add("/std:c++20");
         conf.AdditionalCompilerOptions.Add("/W4");
+        conf.AdditionalCompilerOptions.Add("/WX");
 
         //Set the Linker Subsystem to Windows (default is console)
         conf.Options.Add(Sharpmake.Options.Vc.Linker.SubSystem.Windows);
