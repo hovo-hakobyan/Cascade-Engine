@@ -11,9 +11,7 @@ public class CascadeEngine : Project
         //Name of the project
         Name = "Engine";
         
-        // The directory that contains the source code we want to build is the
-        // same as this one. This string essentially means "the directory of
-        // the script you're reading right now."
+        // The directory that contains the source code we want to build 
         //sharpmakecspath is the path to the sharpmake script
         SourceRootPath = @"[project.SharpmakeCsPath]\..\Source\Engine";
         
@@ -55,7 +53,13 @@ public class CascadeEngine : Project
     public void ConfigureAll(Project.Configuration conf, Target target)
     {
         //specify where the generated project will be
-        conf.ProjectPath = @"[project.SharpmakeCsPath]\..\Generated";
+        conf.ProjectPath = @"[project.SharpmakeCsPath]\..";
+
+        //Intermediate files
+        conf.IntermediatePath = @"[project.SharpmakeCsPath]\..\Intermediate";
+
+        //Binaries
+        conf.TargetPath = @"[project.SharpmakeCsPath]\..\Binaries";
         
         //cpp standard and warning level + warnings == errors
         conf.AdditionalCompilerOptions.Add("/std:c++20");
@@ -64,7 +68,11 @@ public class CascadeEngine : Project
         //Set the Linker Subsystem to Windows (default is console)
         conf.Options.Add(Sharpmake.Options.Vc.Linker.SubSystem.Windows);
 
-       
+        // Include paths
+       //conf.IncludePaths.Add(SourceRootPath);
+
+        // Add source files recursively from the Engine folder
+        //conf.AddSourceFiles(SourceRootPath + @"\**\*");
     }
 }
 
@@ -96,7 +104,8 @@ public class CascadeSolution : Solution
     public void ConfigureAll(Solution.Configuration conf, Target target)
     {
         //Puts the generated solution in the /generated folder too
-        conf.SolutionPath = @"[solution.SharpmakeCsPath]\..\Generated";
+        conf.SolutionPath = @"[solution.SharpmakeCsPath]\..";
+        conf.SolutionFileName = "CascadeEngineSolution";
         
         // Adds the project described by BasicsProject into the solution.
         // Note that this is done in the configuration, so you can generate

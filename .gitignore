@@ -31,7 +31,19 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-generated/
+
+# Ignore Binaries and Intermediate build folders
+/binaries/
+/intermediate/
+
+# Ignore Generated Sharpmake files
+/*.sln
+/*.vcxproj
+/*.vcxproj.filters
+
+# Sharpmake cache and log files
+*.sharpmake.log
+*.sharpmake.cache
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
